@@ -1,13 +1,15 @@
 # node
 Curso de Node.js
 
-Paso 4.   BLOQUEOS
+Paso 5.   ASINCRONO
 
 Todo en node.js es asíncrono, menos tu código.
 
 
 
-Se muestra un proceso que bloquea el server con un sleep de 10 segundos
+
+Se muestra un proceso que a pesar de tardar, NO bloquea el server.
+
 
 
 Para probar: 
