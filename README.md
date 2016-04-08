@@ -1,14 +1,10 @@
 # node
 Curso de Node.js
 
-Paso 5.   ASINCRONO
+Paso 6.   EJEMPLO DE PASO DE VARIABLES
 
-Todo en node.js es asíncrono, menos tu código.
+Paso de variables de una página a otra por medio de POST
 
-
-
-
-Se muestra un proceso que a pesar de tardar, NO bloquea el server.
 
 
 
