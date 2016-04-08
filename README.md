@@ -1,13 +1,12 @@
 # node
 Curso de Node.js
 
-Paso 6.   EJEMPLO DE PASO DE VARIABLES
+Paso 7.   EJEMPLO CHAT
 
-Paso de variables de una página a otra por medio de POST
-
+Ejemplo de uso de sockets bajo Express
 
 
 
 Para probar: 
 
-node index.js
+node app.js

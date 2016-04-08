@@ -1,22 +1,22 @@
 {
-  "name": "node",
-  "version": "0.0.0",
-  "description": "Curso de Node.js",
-  "main": "index.js",
+  "name": "NodeChatSystem",
+  "version": "0.0.1",
+  "description": "Realtime chat system for Tutorialzine.com",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/ivanrios/node.git"
-  },
-  "author": "",
-  "license": "BSD-2-Clause",
-  "bugs": {
-    "url": "https://github.com/ivanrios/node/issues"
-  },
-  "homepage": "https://github.com/ivanrios/node",
+  "keywords": [
+    "node",
+    "chat",
+    "system"
+  ],
+  "author": "Nikolay Anastasov",
+  "license": "MIT",
   "dependencies": {
-    "express": "~4.13.4"
+    "ejs": "^1.0.0",
+    "express": "^4.8.2",
+    "gravatar": "~1.0.6",
+    "socket.io": "1.0.6"
   }
 }
