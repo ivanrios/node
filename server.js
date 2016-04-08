@@ -6,14 +6,11 @@ function iniciar(route, handle) {
     var pathname = url.parse(request.url).pathname;
     console.log("Peticion para " + pathname + " recibida.");
 
-    response.writeHead(200, {"Content-Type": "text/html"});
-    var content = route(handle, pathname)
-    response.write(content);
-    response.end();
+    route(handle, pathname, response);
   }
 
   http.createServer(onRequest).listen(8888);
-  console.log("Servidor Iniciado.  http://localhost:8888");
+  console.log("Servidor Iniciado en  http://localhost:8888");
 }
 
 exports.iniciar = iniciar;

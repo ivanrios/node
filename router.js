@@ -1,10 +1,12 @@
-function route(handle, pathname) {
+function route(handle, pathname, response) {
   console.log("A punto de rutear una peticion para " + pathname);
   if (typeof handle[pathname] === 'function') {
-    return handle[pathname]();
+    handle[pathname](response);
   } else {
-    console.log("No se encontro controlador para " + pathname);
-    return "404 No Encontrado";
+    console.log("No hay controlador de peticion para " + pathname);
+    response.writeHead(404, {"Content-Type": "text/html"});
+    response.write("404 No Encontrado");
+    response.end();
   }
 }
 

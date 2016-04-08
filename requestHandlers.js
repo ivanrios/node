@@ -1,20 +1,22 @@
-function iniciar() {
-  console.log("Manipulador de peticion 'iniciar' fue llamado.");
+var exec = require("child_process").exec;
 
-  function sleep(milliSeconds) {  
-    // obten la hora actual
-    var startTime = new Date().getTime();
-    // atasca la cpu
-    while (new Date().getTime() < startTime + milliSeconds); 
-  }
+function iniciar(response) {
+  console.log("Controlador de petición 'iniciar' fue llamado.");
 
-  sleep(10000);
-  return "Hola Iniciar";
+  exec("find /",
+    { timeout: 10000, maxBuffer: 2000*1024 },
+    function (error, stdout, stderr) {
+      response.writeHead(200, {"Content-Type": "text/html"});
+      response.write(stdout);
+      response.end();
+    });
 }
 
-function subir() {
-  console.log("Manipulador de peticion 'subir' fue llamado.");
-  return "Hola Subir";
+function subir(response) {
+  console.log("Controlador de petición 'subir' fue llamado.");
+  response.writeHead(200, {"Content-Type": "text/html"});
+  response.write("Hola Subir");
+  response.end();
 }
 
 exports.iniciar = iniciar;
