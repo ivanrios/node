@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/ivanrios/node",
   "dependencies": {
-    "express": "~4.13.4"
+    "request": "^2.83.0"
   }
 }
