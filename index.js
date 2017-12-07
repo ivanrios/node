@@ -1,3 +1,3 @@
-var server = require("./server");
+var ops = require("./operaciones");
 
-server.iniciar();
+console.log(ops.suma(2,3));
