@@ -2,14 +2,30 @@
 Curso de Node.js
 
 
-Ejemplo Básico
 
-Escribir en consola  "Hola mundo"
+El curso tiene 7 branches
 
-node holamundo.js
 
-=================
+-----------------------------------------
+Paso 1 - Ejemplo básico
 
-Construir un webservice simple
+Paso 2 - Módulos
 
-node server.js
+Paso 3 - Servidor
+
+Paso 4 - Bloqueo
+
+Paso 5 - Sin Bloqueo (asincrono)
+
+Paso 6 - Paso de variables (post)
+
+Paso 7 - Chat - Express, Socket.io
+
+------------------------------------------
+
+
+Ejemplo para Paso 1
+
+git checkout paso1 
+git reset --hard
+
