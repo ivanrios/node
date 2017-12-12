@@ -1,3 +1,4 @@
+'use strict';
 var express = require('express');
 var fs  = require('fs');
 var app = express();
@@ -53,6 +54,18 @@ app.delete('/eventos/:evento', function(req, res){
 	});
 	var busqueda= db.eventos.filter(function(elem){return (elem.id==evento)})
 	res.send(busqueda);
+});
+
+
+app.post('/eventos', function(req, res){
+	var id = db.eventos.length + 1;
+	var nombre = req.body.evento;
+	var autor = req.body.autor;
+	var evento = {id:id, nombre:nombre, autor:autor};
+	db.eventos.push(evento)
+	var respuesta = "Agregar el evento"
+	console.log("URL: ",respuesta);
+	res.send(evento);
 });
 
 
