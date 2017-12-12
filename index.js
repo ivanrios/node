@@ -3,56 +3,39 @@ var fs  = require('fs');
 var app = express();
 var bodyParser = require('body-parser')
 
-var db = JSON.parse(fs.readFileSync("db.json").toString());
-
-
-
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.json())
 
 app.get('/', function(req, res){
-	console.log("Index");
-	res.send({res:"Ok"});
+	var respuesta = "Pagina inicial"
+	console.log("URL: ", respuesta);
+	res.send({res:respuesta});
 });
 
 app.get('/eventos', function(req, res){
-	console.log("Todos los eventos");
-	res.send(db.eventos);
+	var respuesta = "Todos los eventos"
+	console.log("URL: ",respuesta);
+	res.send({res:respuesta});
 });
 
 app.get('/eventos/:evento', function(req, res){
 	var evento = req.params.evento
-	console.log("Detalles de evento");
-	var busqueda= db.eventos.filter(function(elem){return (elem.id==evento)})
-	res.send(busqueda);
+	var respuesta = "Detalles de evento " +evento
+	console.log("URL: ",respuesta);
+	res.send({res:respuesta});
 });
 
 app.put('/eventos/:evento', function(req, res){
 	var evento = req.params.evento;
-	var nombre = req.body.evento;
-	var autor = req.body.autor;
-
-	console.log("Actualiza el evento");
-	db.eventos = db.eventos.map(function(elem){
-		if (elem.id==evento){
-			elem.evento = nombre;
-			elem.autor  = autor;
-		}
-		return elem;
-	});
-	var busqueda= db.eventos.filter(function(elem){return (elem.id==evento)})
-	res.send(busqueda);
+	var evento = req.params.evento
+	var respuesta = "Actualiza de evento " +evento
+	console.log("URL: ",respuesta);
+	res.send({res:respuesta});
 });
 
 app.delete('/eventos/:evento', function(req, res){
 	var evento = req.params.evento;
-	console.log("Elimina el evento");
-	db.eventos = db.eventos.filter(function(elem, i, object){
-		if (elem.id!=evento)
-			return elem;
-	});
-	var busqueda= db.eventos.filter(function(elem){return (elem.id==evento)})
-	res.send(busqueda);
+	var respuesta = "Eliminando de evento " +evento
+	console.log("URL: ",respuesta);
+	res.send({res:respuesta});
 });
 
 
