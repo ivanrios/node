@@ -7,6 +7,13 @@
 	      "replace" : {"NOMBREPROCESO":"EVENTOS"}
 	    },
 	    {
+	      "path"    : "/eventos/:idevento",
+	      "verb"    : "get",
+	      "sqlFile" : "proceso-general.sql",
+	      "replace" : {"NOMBREPROCESO":"EVENTOS"},
+	      "join"    : { "dest":"params", "vars":["idevento"] }
+	    },
+	    {
 	      "path"    : "/eventos",
 	      "verb"    : "delete",
 	      "sqlFile" : "proceso-general.sql",
