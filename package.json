@@ -5,6 +5,7 @@
   "dependencies": {
     "@salesup/restonsql": "^1.7.0",
     "file-stream-rotator": "^0.2.0",
+    "morgan": "^1.9.0",
     "underscore": "^1.8.3"
   }
 }
