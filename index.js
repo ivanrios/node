@@ -38,6 +38,13 @@ app.delete('/eventos/:evento', function(req, res){
 	res.send({res:respuesta});
 });
 
+app.post('/eventos', function(req, res){
+	var respuesta = "Agregar el evento"
+	console.log("URL: ",respuesta);
+	res.send({res:respuesta});
+});
+
+
 
 app.listen(3000, function(){
   console.log('Escuchando por el puerto localhost:3000');
