@@ -3,9 +3,26 @@ var express = require('express');
 var fs  = require('fs');
 var app = express();
 var bodyParser = require('body-parser')
+var sql = require ('mssql');
+var utils = require ('./utils');
 
 var db = JSON.parse(fs.readFileSync("db.json").toString());
 
+var sqlConfig = {
+      "server"   : "sincronizacion1.salesup.com.mx",
+      "database" : "eventos",
+      "user"     : "admin",
+      "password" : "@DevPerSa16",
+      "port"     : 1433,
+      "options"   : {"useUTC":false }
+    };
+
+var consultas = {
+	eventosLista   :'select * from eventos',
+	eventosDetalle :'select * from eventos where idevento = {0}',
+	eventosInserta :"insert into eventos (idusuarioCreacion, evento) values(1,'{0}') ",
+	eventosElimina :'delete from eventos where idevento = {0}',
+}
 
 
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -17,55 +34,61 @@ app.get('/', function(req, res){
 });
 
 app.get('/eventos', function(req, res){
-	console.log("Todos los eventos");
-	res.send(db.eventos);
+	var dbConn = new sql.Connection (sqlConfig);
+	 dbConn.connect().then (function () {
+	 	var sqlRequest = new sql.Request (dbConn);
+	 	var SQLText = consultas['eventosLista']
+	 	sqlRequest.query(SQLText).then ( function (recordSet) {
+	 		console.log(recordSet)
+	 		res.send(recordSet);
+	 	});
+	 });
+	
 });
 
 app.get('/eventos/:evento', function(req, res){
 	var evento = req.params.evento
 	console.log("Detalles de evento");
-	var busqueda= db.eventos.filter(function(elem){return (elem.id==evento)})
-	res.send(busqueda);
+	var dbConn = new sql.Connection (sqlConfig);
+	 dbConn.connect().then (function () {
+	 	var sqlRequest = new sql.Request (dbConn);
+	 	var SQLText = consultas['eventosDetalle'].format(evento)
+	 	sqlRequest.query(SQLText).then ( function (recordSet) {
+	 		console.log(recordSet)
+	 		res.send(recordSet);
+	 	});
+	 });
 });
 
-app.put('/eventos/:evento', function(req, res){
-	var evento = req.params.evento;
-	var nombre = req.body.evento;
-	var autor = req.body.autor;
 
-	console.log("Actualiza el evento");
-	db.eventos = db.eventos.map(function(elem){
-		if (elem.id==evento){
-			elem.evento = nombre;
-			elem.autor  = autor;
-		}
-		return elem;
-	});
-	var busqueda= db.eventos.filter(function(elem){return (elem.id==evento)})
-	res.send(busqueda);
-});
 
 app.delete('/eventos/:evento', function(req, res){
-	var evento = req.params.evento;
-	console.log("Elimina el evento");
-	db.eventos = db.eventos.filter(function(elem, i, object){
-		if (elem.id!=evento)
-			return elem;
-	});
-	var busqueda= db.eventos.filter(function(elem){return (elem.id==evento)})
-	res.send(busqueda);
+	var evento = req.params.evento
+	console.log("Eliminar de evento");
+	var dbConn = new sql.Connection (sqlConfig);
+	 dbConn.connect().then (function () {
+	 	var sqlRequest = new sql.Request (dbConn);
+	 	var SQLText = consultas['eventosElimina'].format(evento)
+	 	sqlRequest.query(SQLText).then ( function (recordSet) {
+	 		console.log(recordSet)
+	 		res.send(recordSet);
+	 	});
+	 });
 });
 
 
 app.post('/eventos', function(req, res){
-	var id = db.eventos.length + 1;
-	var nombre = req.body.evento;
-	var autor = req.body.autor;
-	var evento = {id:id, nombre:nombre, autor:autor};
-	db.eventos.push(evento)
-	var respuesta = "Agregar el evento"
-	console.log("URL: ",respuesta);
-	res.send(evento);
+	var evento = req.body.evento
+	console.log("Inserta de evento");
+	var dbConn = new sql.Connection (sqlConfig);
+	 dbConn.connect().then (function () {
+	 	var sqlRequest = new sql.Request (dbConn);
+	 	var SQLText = consultas['eventosInserta'].format(evento)
+	 	console.log(SQLText)
+	 	sqlRequest.query(SQLText).then ( function (recordSet) {
+	 		res.send(recordSet);
+	 	});
+	 });
 });
 
 
