@@ -1,0 +1,30 @@
+{
+  "eventos": [
+    {
+      "evento": "Javascript Básico",
+      "autor": "Alfredo Naguatt",
+      "id": 1
+    },
+    {
+      "id": 2,
+      "evento": "Curso de NodeJS",
+      "autor": "Ivan Rios"
+    },
+    {
+      "evento": "Javascript Básico",
+      "autor": "Alfredo Naguatt",
+      "id": 3
+    }
+  ],
+  "participantes": [
+    {
+      "id": 1,
+      "nombre": "Viridiana Napoles",
+      "correo": "viridiana.napoles@gmail.com"
+    }
+  ],
+  "config": {
+    "nombre": "Sistema de eventos",
+    "version": "0.1"
+  }
+}
