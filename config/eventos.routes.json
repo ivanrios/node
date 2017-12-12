@@ -1,6 +1,18 @@
 {
 	"routes": [
 	    {
+	      "path"    : "/actividades",
+	      "verb"    : "get",
+	      "sqlFile" : "proceso-general.sql",
+	      "replace" : {"NOMBREPROCESO":"ACTIVIDADES"}
+	    },
+	    {
+	      "path"    : "/actividades",
+	      "verb"    : "post",
+	      "sqlFile" : "proceso-general.sql",
+	      "replace" : {"NOMBREPROCESO":"ACTIVIDADES"}
+	    },
+	    {
 	      "path"    : "/eventos",
 	      "verb"    : "get",
 	      "sqlFile" : "proceso-general.sql",
@@ -14,22 +26,24 @@
 	      "join"    : { "dest":"params", "vars":["idevento"] }
 	    },
 	    {
-	      "path"    : "/eventos",
+	      "path"    : "/eventos/:idevento",
 	      "verb"    : "delete",
 	      "sqlFile" : "proceso-general.sql",
-	      "replace" : {"NOMBREPROCESO":"EVENTOS"}
+	      "replace" : {"NOMBREPROCESO":"EVENTOS"},
+	      "join"    : { "dest":"params", "vars":["idevento"] }
 	    },
 	    {
-	      "path"    : "/eventos",
+	      "path"    : "/eventos/",
 	      "verb"    : "post",
 	      "sqlFile" : "proceso-general.sql",
 	      "replace" : {"NOMBREPROCESO":"EVENTOS"}
 	    },
 	    {
-	      "path"    : "/eventos",
+	      "path"    : "/eventos/:idevento",
 	      "verb"    : "put",
 	      "sqlFile" : "proceso-general.sql",
-	      "replace" : {"NOMBREPROCESO":"EVENTOS"}
+	      "replace" : {"NOMBREPROCESO":"EVENTOS"},
+	      "join"    : { "dest":"params", "vars":["idevento"] }
 	    }
    ]
 }

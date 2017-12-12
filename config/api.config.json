@@ -19,6 +19,8 @@
 
   "routefiles": [
     "eventos.routes.json"    ,
-    "titulos.routes.json"
+    "titulos.routes.json",
+    "instructores.routes.json"
   ]
 }
+

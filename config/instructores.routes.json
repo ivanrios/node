@@ -1,0 +1,17 @@
+{
+	"routes": [
+	    {
+	      "path"    : "/instructores",
+	      "verb"    : "get",
+	      "sqlFile" : "proceso-general.sql",
+	      "replace" : {"NOMBREPROCESO":"INSTRUCTORES"}
+	    },
+	    {
+	      "path"    : "/instructores",
+	      "verb"    : "post",
+	      "sqlFile" : "proceso-general.sql",
+	      "replace" : {"NOMBREPROCESO":"INSTRUCTORES"}
+	    }
+
+   ]
+}
