@@ -1,0 +1,28 @@
+{
+	"routes": [
+	    {
+	      "path"    : "/eventos",
+	      "verb"    : "get",
+	      "sqlFile" : "proceso-general.sql",
+	      "replace" : {"NOMBREPROCESO":"EVENTOS"}
+	    },
+	    {
+	      "path"    : "/eventos",
+	      "verb"    : "delete",
+	      "sqlFile" : "proceso-general.sql",
+	      "replace" : {"NOMBREPROCESO":"EVENTOS"}
+	    },
+	    {
+	      "path"    : "/eventos",
+	      "verb"    : "post",
+	      "sqlFile" : "proceso-general.sql",
+	      "replace" : {"NOMBREPROCESO":"EVENTOS"}
+	    },
+	    {
+	      "path"    : "/eventos",
+	      "verb"    : "put",
+	      "sqlFile" : "proceso-general.sql",
+	      "replace" : {"NOMBREPROCESO":"EVENTOS"}
+	    }
+   ]
+}

@@ -1,0 +1,28 @@
+{
+	"routes": [
+	    {
+	      "path"    : "/titulos",
+	      "verb"    : "get",
+	      "sqlFile" : "proceso-general.sql",
+	      "replace" : {"NOMBREPROCESO":"TITULOS"}
+	    },
+	    {
+	      "path"    : "/titulos",
+	      "verb"    : "delete",
+	      "sqlFile" : "proceso-general.sql",
+	      "replace" : {"NOMBREPROCESO":"TITULOS"}
+	    },
+	    {
+	      "path"    : "/titulos",
+	      "verb"    : "post",
+	      "sqlFile" : "proceso-general.sql",
+	      "replace" : {"NOMBREPROCESO":"TITULOS"}
+	    },
+	    {
+	      "path"    : "/titulos",
+	      "verb"    : "put",
+	      "sqlFile" : "proceso-general.sql",
+	      "replace" : {"NOMBREPROCESO":"TITULOS"}
+	    }
+   ]
+}
