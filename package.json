@@ -1,8 +1,9 @@
 {
-  "name": "cursonode",
+  "name": "rest",
   "version": "0.0.1",
-  "description": "my first json api",
+  "description": "my first restful app",
   "dependencies": {
-    "json-server": "^0.12.1"
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2"
   }
 }
